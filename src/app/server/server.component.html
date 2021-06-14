@@ -1,0 +1,10 @@
+<div>
+    <label for="name" class="form-label">Enter Name: {{serverName}}</label>
+</div>
+<div>
+    <input type="text" class="form-control" (input)="onUpdateName($event)" id="name">
+</div>
+<div>
+    <button class="btn btn-primary" (click)="onClick()">Submit</button>
+</div>
+<p>{{serverCreationStatus}}</p>
