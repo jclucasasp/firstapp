@@ -1,0 +1,13 @@
+<h3>Servers Component</h3>
+<app-server></app-server>
+<div>
+    <label for="server-name" class="form-label">Input server name</label>
+    <input type="text" id="server-name" class="form-control" 
+    (input)="onUpdateServerName($event)">
+
+    <button class="btn btn-primary" 
+    [disabled]="!allowNewServer"
+    (click)="onClick()">Create Server</button>
+
+    <p>Server {{serverName}} {{serverCreationStatus}}</p>
+</div>
