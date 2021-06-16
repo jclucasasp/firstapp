@@ -1,0 +1,8 @@
+<h3>Test</h3>
+
+<label for="name" class="form-label">Enter your name</label>
+<input type="text" class="form-control" id="name" [(ngModel)]="userName">
+<p>{{userName}}</p>
+
+<button [disabled]="!userName" class="btn btn-warning" (click)="onClickClear()">Click to reset
+    name</button>

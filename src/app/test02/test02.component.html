@@ -1,0 +1,9 @@
+<h3>Test 2</h3>
+<button class="btn btn-primary" (click)="onIncrement()">Display counter</button>
+
+<p *ngIf="hidden">You Clicked {{clicks.length}} times</p>
+<!-- <p [ngStyle]="{'background-color': counter >4 ? 'red': 'white'}">You Clicked {{counter}} times</p> -->
+
+<ul>
+    <li *ngFor="let click of clicks; let i = index" [ngClass]="{'change': i > 4}">{{click}}</li>
+</ul>

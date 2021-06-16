@@ -9,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer: boolean = false;
   serverCreationStatus: string = '';
-  serverName: string = '';
+  serverName: string = null;
 
-  constructor() { 
+  serverCreated: boolean = false;
+  servers: string[] = [];
+
+  constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
@@ -19,12 +22,16 @@ export class ServersComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-public onClick():string {
-  return this.serverCreationStatus = 'successfully created';
+  // to use two way binding {update from the hard coded value and input from the user}
+  //[(ngModel)]="<variable>"
+  public onClick(): string {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
+    return this.serverCreationStatus = 'Server ' + this.serverName + " successfully created";
   }
-
-  public onUpdateServerName(event: Event):string{
-    return this.serverName = (<HTMLInputElement>event.target).value;
+  // to use only event binding use (<event name>, eg click or update)="<variable name>($event)"
+  public onUpdateServerName(event: Event): string {
+    this.serverName = (<HTMLInputElement>event.target).value;
+    return this.serverName;
   }
 }
